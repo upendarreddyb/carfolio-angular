@@ -1,0 +1,23 @@
+.accessory-card {
+  max-height: 220px;
+  padding: 5px;
+}
+
+.accessory-img {
+  height: 120px;
+  object-fit: cover;
+}
+
+.feature-card {
+  max-height: 250px;
+  padding: 5px;
+}
+
+.feature-img {
+  height: 130px;
+  object-fit: cover;
+}
+
+.feature-video {
+  height: 150px !important;
+}

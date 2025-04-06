@@ -1,0 +1,19 @@
+<div class="container mt-4">
+  <h4>Add Category</h4>
+  <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label class="form-label">Name</label>
+      <input type="text" formControlName="name" class="form-control" placeholder="Category name" />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Type</label>
+      <select formControlName="type" class="form-select">
+        <option value="" disabled>Select type</option>
+        <option *ngFor="let type of types" [value]="type">{{ type }}</option>
+      </select>
+    </div>
+
+    <button class="btn btn-primary" type="submit" [disabled]="categoryForm.invalid">Add Category</button>
+  </form>
+</div>

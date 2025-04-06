@@ -1,0 +1,37 @@
+<div class="container mt-4">
+  <h4>Add Variant</h4>
+  <form [formGroup]="variantForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label>Variant Name</label>
+      <input class="form-control" formControlName="name" />
+    </div>
+
+    <div class="mb-3">
+      <label>Price</label>
+      <input class="form-control" formControlName="price" />
+    </div>
+
+    <div class="mb-3">
+      <label>Colors</label><br />
+      <div *ngFor="let color of colors">
+        <input type="checkbox" (change)="toggleSelection(colorsArray, color._id)" /> {{ color.name }}
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label>Accessories</label><br />
+      <div *ngFor="let accessory of accessories">
+        <input type="checkbox" (change)="toggleSelection(accessoriesArray, accessory._id)" /> {{ accessory.name }}
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label>Features</label><br />
+      <div *ngFor="let feature of features">
+        <input type="checkbox" (change)="toggleSelection(featuresArray, feature._id)" /> {{ feature.name }}
+      </div>
+    </div>
+
+    <button class="btn btn-primary" type="submit" [disabled]="variantForm.invalid">Add Variant</button>
+  </form>
+</div>

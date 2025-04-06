@@ -1,0 +1,35 @@
+<div class="container p-4 border rounded shadow-sm">
+  <h4>Add Car Model</h4>
+
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="mb-3">
+      <label class="form-label">Model Name</label>
+      <input class="form-control" formControlName="name" placeholder="Enter model name" />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Description</label>
+      <textarea class="form-control" formControlName="description" rows="3"></textarea>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Image URL</label>
+      <input class="form-control" formControlName="image" placeholder="Image URL" />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Select Variants (min 3 required)</label>
+      <div *ngFor="let variant of variantList" class="form-check">
+        <input class="form-check-input"
+               type="checkbox"
+               [value]="variant._id"
+               (change)="onVariantToggle(variant._id, $event)">
+        <label class="form-check-label">
+          {{ variant.name }}
+        </label>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create Model</button>
+  </form>
+</div>

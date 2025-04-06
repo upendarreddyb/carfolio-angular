@@ -1,0 +1,22 @@
+<div class="container mt-4">
+  <h3>Add Accessory</h3>
+  <form (ngSubmit)="onSubmit()" class="row g-3">
+    <div class="col-md-6">
+      <label>Accessory Name</label>
+      <input type="text" class="form-control" [(ngModel)]="accessory.name" name="name" required>
+    </div>
+    <div class="col-md-6">
+      <label>Image URL</label>
+      <input type="text" class="form-control" [(ngModel)]="accessory.imageUrl" name="imageUrl">
+    </div>
+    <div class="col-md-12">
+      <label>Category</label>
+      <select class="form-select" [(ngModel)]="accessory.categoryId" name="categoryId" required>
+        <option *ngFor="let cat of categories" [value]="cat._id">{{ cat.name }}</option>
+      </select>
+    </div>
+    <div class="col-12">
+      <button class="btn btn-info" type="submit">Add Accessory</button>
+    </div>
+  </form>
+</div>

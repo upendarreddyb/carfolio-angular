@@ -1,0 +1,31 @@
+<div class="container mt-3">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label class="form-label">Feature Name</label>
+      <input class="form-control" placeholder="Feature Name" formControlName="name" />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Media Type</label>
+      <select class="form-select" formControlName="mediaType">
+        <option value="" disabled>Select Media Type</option>
+        <option *ngFor="let type of mediaTypes" [value]="type">{{ type | titlecase }}</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Media URL</label>
+      <input class="form-control" placeholder="Media URL" formControlName="mediaUrl" />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Feature Category</label>
+      <select class="form-select" formControlName="categoryId">
+        <option value="" disabled>Select Category</option>
+        <option *ngFor="let category of categories" [value]="category._id">{{ category.name }}</option>
+      </select>
+    </div>
+
+    <button class="btn btn-success" type="submit">Add Feature</button>
+  </form>
+</div>
